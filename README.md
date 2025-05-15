@@ -1,7 +1,9 @@
 # Thesis Project: Facial Emotion Recognition Experiments
+Facial Emotion Recognition on Japanese Emotion "Ahegao"
 
 This repository contains the code and materials for my thesis project on facial emotion recognition (FER) using both deep learning and traditional machine learning methods. It includes dataset preparation scripts, a support vector machine (SVM) baseline on ResNet50 feature embeddings, a custom convolutional neural network (CNN), and a VGG16-based transfer learning model.
 
+The raw dataset used for this thesis can be found on this website: https://data.mendeley.com/datasets/5ck5zz6f2c/2
 ---
 
 ## Table of Contents
@@ -71,15 +73,12 @@ The VGG-based notebook requires more memory and is best run in Google Colab:
 ## Repository Structure
 
 ```plaintext
-├── dataset/                         # Original raw dataset
-├── dataset_split/                   # Splits into train/ and test/ folders (80%/20%)
-├── notebooks/                       # Jupyter notebooks
+├── notebooks/                       # Python scripts
 │   ├── Dataset_split.py             # Script to split dataset into train/test
 │   ├── SVM-baseline.py              # SVM baseline implementation
 │   ├── custom-CNN.py                # Custom CNN training and evaluation
 │   ├── VGG16-Transfer-Learning.py   # VGG transfer learning (Colab recommended)
 │   └── OAHEGA_class_distribution.py # Dataset distribution figure
-├── models/                          # Saved model weights and logs
 ├── figures/                         # Evaluation metrics, plots, and figures
 ├── README.md                        # This file
 └── requirements.txt                 # Python dependencies
@@ -89,9 +88,9 @@ The VGG-based notebook requires more memory and is best run in Google Colab:
 
 ## Data Preparation
 
-The `Dataset_split.py` handles:
+After the raw dataset is downloaded, `Dataset_split.py` does:
 
-1. Reading raw images from `dataset/`, organized by emotion class.
+1. Reading raw images from the OAHEGA dataset, organized by emotion class.
 2. Randomly splitting each class into 80% training and 20% test sets.
 3. Creating `dataset_split/train/<class>/` and `dataset_split/test/<class>/` directories.
 4. Copying images accordingly for compatibility with Keras' `ImageDataGenerator`.
